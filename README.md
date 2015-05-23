@@ -1,2 +1,2 @@
 # WAAccountStore
-A universal account system for iOS
+A universal and extensible account system
