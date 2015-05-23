@@ -63,6 +63,10 @@ extension WAAccountCredential {
 
 ```
 
+##Demo
+
+There's a simple demo project in WAAccountStoreDemo folder. A `pod install` is required to open and build `WAAccountStoreDemo.xcworkspace`
+
 ##Install
 
 Either clone the repo and manually add the files in `WAAccountStore` directory
