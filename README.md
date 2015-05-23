@@ -2,8 +2,6 @@
 
 `WAAccountStore` is a simple yet extensible account system.
 
-
-
 It encapsules the basic account management functions, the security storage of the account credential. And allows you to store any useful information you want with a account.
 
 ##Infrastructure
@@ -28,7 +26,7 @@ You may start using `WAAccountStore` directly. However creating some simple exte
 
 For example:
 
-__You may want to associate your user model with `WAAccount`.__
+__Associate your user model with `WAAccount`.__
 
 ```swift
 //Assuming `User` is your user model class.
@@ -45,9 +43,7 @@ extension WAAccount {
 }
 ```
 
-__Directly accessing `securityStorage` of `WAAccountCredential` is inconvenient.__
-
-Create a extension for convenient access:
+__Direct access to `securityStorage` of `WAAccountCredential` is inconvenient. Create a extension for convenient access.__
 
 ```swift
 
@@ -66,6 +62,15 @@ extension WAAccountCredential {
 }
 
 ```
+
+##Install
+
+Either clone the repo and manually add the files in `WAAccountStore` directory
+
+or if you use Cocoapods, add the following to your Podfile
+
+	pod 'WAAccountStore'
+
 
 ##Note
 
