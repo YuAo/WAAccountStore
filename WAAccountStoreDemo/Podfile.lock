@@ -1,4 +1,7 @@
 PODS:
+  - Mantle (2.0):
+    - Mantle/extobjc (= 2.0)
+  - Mantle/extobjc (2.0)
   - UICKeyChainStore (2.0.4)
   - WAAccountStore (1.0):
     - UICKeyChainStore
@@ -8,6 +11,7 @@ PODS:
   - WAKeyValuePersistenceStore/Core (1.0)
 
 DEPENDENCIES:
+  - Mantle
   - WAAccountStore (from `../`)
 
 EXTERNAL SOURCES:
@@ -15,6 +19,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  Mantle: d7c75b6fb789b20f7ae30cd0d09435fe545896ff
   UICKeyChainStore: 69eb0c3a6f669bccf16ba88de3b9069b71501361
   WAAccountStore: 0aab5023b0ff9e99dd52d10bbc27f2232f412d75
   WAKeyValuePersistenceStore: ad168ff2c7c2e3762d4027f1b0678440230c576b

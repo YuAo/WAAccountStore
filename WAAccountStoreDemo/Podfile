@@ -4,10 +4,11 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'WAAccountStoreDemo' do
-pod 'WAAccountStore', :path => '../'
+    pod 'Mantle'
+    pod 'WAAccountStore', :path => '../'
 end
 
 target 'WAAccountStoreDemoTests' do
-pod 'WAAccountStore', :path => '../'
+    pod 'WAAccountStore', :path => '../'
 end
 
