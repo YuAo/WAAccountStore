@@ -6,9 +6,9 @@ It encapsules the basic account management functions, the security storage of th
 
 ##Infrastructure
 
-`WAAccount` represents a user account. It contains a `WAAccountCredential` for storing account credential info and a user info object for storing additional user info.
+`WAAccount` represents a user account. It contains a `WAAccountCredential` for storing account credential info and a user info object for storing additional info.
 
-`WAAccountCredential` provides a security way of storing account credentials. It has a `securityStorage` property. Andthing in the `securityStorage` will be stored safely in the keychain.
+`WAAccountCredential` provides a security way of storing account credentials. It has a `securityStorage` property. Anything in the `securityStorage` will be stored safely in the keychain.
 
 `WAAccountStore` provides a set of account management functions, such as add account, remove account, update account, etc. As well as notifications for account change (`WAAccountStoreCurrentAccountDidChangeNotification`, `WAAccountStoreCurrentAccountUpdatedNotification`)
 
