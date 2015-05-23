@@ -79,3 +79,9 @@ or if you use Cocoapods, add the following to your Podfile
 ##Note
 
 `WAAccountStore` makes use of [`WAKeyValuePersistenceStore`](https://github.com/YuAo/WAKeyValuePersistenceStore) and [`UICKeyChainStore`](https://github.com/kishikawakatsumi/UICKeyChainStore)
+
+##Requirements
+
+* Automatic Reference Counting (ARC)
+* iOS 7.0+
+* Xcode 6.3+
