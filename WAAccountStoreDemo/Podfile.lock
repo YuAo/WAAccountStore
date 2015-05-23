@@ -1,0 +1,22 @@
+PODS:
+  - UICKeyChainStore (2.0.4)
+  - WAAccountStore (1.0):
+    - UICKeyChainStore
+    - WAKeyValuePersistenceStore
+  - WAKeyValuePersistenceStore (1.0):
+    - WAKeyValuePersistenceStore/Core (= 1.0)
+  - WAKeyValuePersistenceStore/Core (1.0)
+
+DEPENDENCIES:
+  - WAAccountStore (from `../`)
+
+EXTERNAL SOURCES:
+  WAAccountStore:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  UICKeyChainStore: 69eb0c3a6f669bccf16ba88de3b9069b71501361
+  WAAccountStore: 0aab5023b0ff9e99dd52d10bbc27f2232f412d75
+  WAKeyValuePersistenceStore: ad168ff2c7c2e3762d4027f1b0678440230c576b
+
+COCOAPODS: 0.37.1
