@@ -1,4 +1,7 @@
 # WAAccountStore
+![CocoaPods Platform](https://img.shields.io/cocoapods/p/WAAccountStore.svg?style=flat-square)
+![CocoaPods Version](https://img.shields.io/cocoapods/v/WAAccountStore.svg?style=flat-square)
+![CocoaPods License](https://img.shields.io/cocoapods/l/WAAccountStore.svg?style=flat-square)
 
 `WAAccountStore` is a simple yet extensible account system.
 
