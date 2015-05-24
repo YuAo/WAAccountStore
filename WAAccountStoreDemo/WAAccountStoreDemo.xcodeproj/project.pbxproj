@@ -14,6 +14,7 @@
 		9D5767701B106053007BF6FD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D57676F1B106053007BF6FD /* Images.xcassets */; };
 		9D5767731B106053007BF6FD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5767711B106053007BF6FD /* LaunchScreen.xib */; };
 		9D57677F1B106053007BF6FD /* WAAccountStoreDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57677E1B106053007BF6FD /* WAAccountStoreDemoTests.swift */; };
+		9D58F8AD1B12191D0051D181 /* AccountsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D58F8AC1B12191D0051D181 /* AccountsTableViewController.swift */; };
 		EB0FCDCB2364B0216B37252D /* Pods_WAAccountStoreDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13164BFE4ABC7D5E452AD7E /* Pods_WAAccountStoreDemoTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		9D5767781B106053007BF6FD /* WAAccountStoreDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WAAccountStoreDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D57677D1B106053007BF6FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D57677E1B106053007BF6FD /* WAAccountStoreDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAAccountStoreDemoTests.swift; sourceTree = "<group>"; };
+		9D58F8AC1B12191D0051D181 /* AccountsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsTableViewController.swift; sourceTree = "<group>"; };
 		A13164BFE4ABC7D5E452AD7E /* Pods_WAAccountStoreDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WAAccountStoreDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D358C6E11D56D8E3C5EF20 /* Pods-WAAccountStoreDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WAAccountStoreDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WAAccountStoreDemo/Pods-WAAccountStoreDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B27FDA3A5B8CB42CDBA1E299 /* Pods_WAAccountStoreDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WAAccountStoreDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +93,7 @@
 			children = (
 				9D5767681B106053007BF6FD /* AppDelegate.swift */,
 				9D57676A1B106053007BF6FD /* ViewController.swift */,
+				9D58F8AC1B12191D0051D181 /* AccountsTableViewController.swift */,
 				9D57676C1B106053007BF6FD /* Main.storyboard */,
 				9D57676F1B106053007BF6FD /* Images.xcassets */,
 				9D5767711B106053007BF6FD /* LaunchScreen.xib */,
@@ -344,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D57676B1B106053007BF6FD /* ViewController.swift in Sources */,
+				9D58F8AD1B12191D0051D181 /* AccountsTableViewController.swift in Sources */,
 				9D5767691B106053007BF6FD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

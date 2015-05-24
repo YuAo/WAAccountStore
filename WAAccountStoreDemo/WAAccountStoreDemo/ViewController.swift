@@ -63,8 +63,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         self.reloadCurrentAccountInfo()
     }
     
@@ -75,12 +75,13 @@ class ViewController: UIViewController {
             self.textView.text = "No Accounts"
         }
     }
-
+    
     @IBAction func addAccountButtonTapped(sender: AnyObject) {
         let alertController = UIAlertController(title: "Add Account", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addTextFieldWithConfigurationHandler { (textField) -> Void in
             //AccountID
             textField.text = NSProcessInfo.processInfo().globallyUniqueString
+            textField.textColor = UIColor.lightGrayColor()
             textField.enabled = false
         }
         alertController.addTextFieldWithConfigurationHandler { (textField) -> Void in
