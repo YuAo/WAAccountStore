@@ -1,0 +1,6 @@
+osx_image: beta-xcode6.3
+language: objective-c
+xcode_sdk: iphonesimulator
+xcode_workspace: WAAccountStoreDemo/WAAccountStoreDemo.xcworkspace
+xcode_scheme: WAAccountStoreDemo
+podfile: WAAccountStoreDemo/Podfile
