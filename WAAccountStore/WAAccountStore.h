@@ -18,6 +18,10 @@ extern NSString * const WAAccountStoreCurrentAccountUpdatedNotification;
 
 @interface WAAccountStore : NSObject
 
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithName:(NSString *)name;
+
 + (instancetype)defaultStore;
 
 @property (nonatomic,copy,readonly,nullable) NSArray *accounts;

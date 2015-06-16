@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,copy,readonly) NSDictionary *securityStorage;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 - (instancetype)initWithIdentifier:(NSString *)identifier
                    securityStorage:(NSDictionary *)securityStorage NS_DESIGNATED_INITIALIZER;
 

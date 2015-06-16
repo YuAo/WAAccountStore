@@ -22,6 +22,8 @@ typedef id<NSObject, NSCoding, NSCopying> WAAccountUserInfo;
 
 @property (nonatomic,copy,readonly,nullable) WAAccountUserInfo userInfo;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 - (instancetype)initWithIdentifier:(NSString *)identifier
                         credential:(WAAccountCredential *)credential
                           userInfo:(nullable WAAccountUserInfo)userInfo NS_DESIGNATED_INITIALIZER;
