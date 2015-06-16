@@ -1,4 +1,5 @@
 # WAAccountStore
+[![Build Status](https://travis-ci.org/YuAo/WAAccountStore.svg?branch=master)](https://travis-ci.org/YuAo/WAAccountStore)
 ![CocoaPods Platform](https://img.shields.io/cocoapods/p/WAAccountStore.svg?style=flat-square)
 ![CocoaPods Version](https://img.shields.io/cocoapods/v/WAAccountStore.svg?style=flat-square)
 ![CocoaPods License](https://img.shields.io/cocoapods/l/WAAccountStore.svg?style=flat-square)
@@ -9,11 +10,11 @@ It encapsulates the basic account management functions, the security storage of 
 
 ##Infrastructure
 
-`WAAccount` represents a user account. It contains a `WAAccountCredential` for storing account credential info and a user info object for storing additional info.
+[`WAAccount`](https://github.com/YuAo/WAAccountStore/blob/master/WAAccountStore/WAAccount.h) represents a user account. It contains a `WAAccountCredential` for storing account credential info and a user info object for storing additional info.
 
-`WAAccountCredential` provides a secure way of storing account credentials. It has a `securityStorage` property. Anything in the `securityStorage` will be stored safely in the keychain.
+[`WAAccountCredential`](https://github.com/YuAo/WAAccountStore/blob/master/WAAccountStore/WAAccountCredential.h) provides a secure way of storing account credentials. It has a `securityStorage` property. Anything in the `securityStorage` will be stored safely in the keychain.
 
-`WAAccountStore` provides a set of account management functions, such as add account, remove account, update account, etc. As well as notifications for account change (`WAAccountStoreCurrentAccountDidChangeNotification`, `WAAccountStoreCurrentAccountUpdatedNotification`)
+[`WAAccountStore`](https://github.com/YuAo/WAAccountStore/blob/master/WAAccountStore/WAAccountStore.h) provides a set of account management functions, such as add account, remove account, update account, etc. As well as notifications for account change (`WAAccountStoreCurrentAccountDidChangeNotification`, `WAAccountStoreCurrentAccountUpdatedNotification`)
 
 ##Usage
 
