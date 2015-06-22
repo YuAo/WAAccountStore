@@ -1,14 +1,14 @@
 PODS:
-  - Mantle (2.0):
-    - Mantle/extobjc (= 2.0)
-  - Mantle/extobjc (2.0)
-  - UICKeyChainStore (2.0.4)
-  - WAAccountStore (1.0):
+  - Mantle (2.0.2):
+    - Mantle/extobjc (= 2.0.2)
+  - Mantle/extobjc (2.0.2)
+  - UICKeyChainStore (2.0.6)
+  - WAAccountStore (1.1):
     - UICKeyChainStore
     - WAKeyValuePersistenceStore
-  - WAKeyValuePersistenceStore (1.0):
-    - WAKeyValuePersistenceStore/Core (= 1.0)
-  - WAKeyValuePersistenceStore/Core (1.0)
+  - WAKeyValuePersistenceStore (1.1):
+    - WAKeyValuePersistenceStore/Core (= 1.1)
+  - WAKeyValuePersistenceStore/Core (1.1)
 
 DEPENDENCIES:
   - Mantle
@@ -19,9 +19,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Mantle: d7c75b6fb789b20f7ae30cd0d09435fe545896ff
-  UICKeyChainStore: 69eb0c3a6f669bccf16ba88de3b9069b71501361
-  WAAccountStore: 0aab5023b0ff9e99dd52d10bbc27f2232f412d75
-  WAKeyValuePersistenceStore: ad168ff2c7c2e3762d4027f1b0678440230c576b
+  Mantle: 967fd31ea0220890b2e76589198996b534bb3fb1
+  UICKeyChainStore: c5719c814e8bd69e74e4a0fc09daf8f4d6257a59
+  WAAccountStore: 0366e109bac904b1b3a3832b25ff0aadcccb1f32
+  WAKeyValuePersistenceStore: 5894ffc1d4d44bf5177ff64d8e0bfa239241aaa1
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.37.2
