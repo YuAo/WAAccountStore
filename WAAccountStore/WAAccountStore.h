@@ -24,7 +24,7 @@ extern NSString * const WAAccountStoreCurrentAccountUpdatedNotification;
 
 + (instancetype)defaultStore;
 
-@property (nonatomic,copy,readonly,nullable) NSArray *accounts;
+@property (nonatomic,copy,readonly) NSArray<WAAccount *> *accounts;
 
 @property (nonatomic,copy,nullable) WAAccount *currentAccount;
 

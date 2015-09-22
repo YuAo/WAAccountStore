@@ -16,13 +16,13 @@ class AccountsTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return WAAccountStore.defaultStore().accounts?.count ?? 0
+        return WAAccountStore.defaultStore().accounts.count ?? 0
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
         
-        let account = WAAccountStore.defaultStore().accounts?[indexPath.row] as! WAAccount
+        let account = WAAccountStore.defaultStore().accounts[indexPath.row]
         cell.textLabel?.text = account.user.name
         cell.detailTextLabel?.text = account.identifier
 
@@ -43,7 +43,7 @@ class AccountsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let account = WAAccountStore.defaultStore().accounts?[indexPath.row] as! WAAccount
+            let account = WAAccountStore.defaultStore().accounts[indexPath.row]
             WAAccountStore.defaultStore().removeAccountWithIdentifier(account.identifier)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
@@ -51,7 +51,7 @@ class AccountsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let account = WAAccountStore.defaultStore().accounts?[indexPath.row] as! WAAccount
+        let account = WAAccountStore.defaultStore().accounts[indexPath.row]
         WAAccountStore.defaultStore().currentAccount = account
         self.tableView.reloadData()
     }

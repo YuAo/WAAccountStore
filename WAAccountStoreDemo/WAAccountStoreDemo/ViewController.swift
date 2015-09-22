@@ -24,8 +24,8 @@ class User: MTLModel {
         self.email = email
     }
 
-    required init!(dictionary dictionaryValue: [NSObject : AnyObject]!, error: NSErrorPointer) {
-        super.init(dictionary: dictionaryValue, error: error)
+    required init(dictionary dictionaryValue: [NSObject : AnyObject]!) throws {
+        try super.init(dictionary: dictionaryValue)
     }
 
     required init!(coder: NSCoder!) {
@@ -98,21 +98,21 @@ class ViewController: UIViewController {
         }))
         alertController.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
             //AccountID
-            let accountID = (alertController.textFields![0] as! UITextField).text
+            let accountID = (alertController.textFields![0]).text
             
             //Name
-            let name = (alertController.textFields![1] as! UITextField).text
+            let name = (alertController.textFields![1]).text
             
             //Email
-            let email = (alertController.textFields![2] as! UITextField).text
+            let email = (alertController.textFields![2]).text
 
             //AccessToken
-            let token = (alertController.textFields![3] as! UITextField).text
+            let token = (alertController.textFields![3]).text
             
             let account = WAAccount(
-                identifier: accountID,
-                credential: WAAccountCredential(identifier: accountID, accessToken: token),
-                user: User(name: name, email: email))
+                identifier: accountID!,
+                credential: WAAccountCredential(identifier: accountID!, accessToken: token!),
+                user: User(name: name!, email: email!))
             WAAccountStore.defaultStore().addAccount(account)
             self.reloadCurrentAccountInfo()
         }))

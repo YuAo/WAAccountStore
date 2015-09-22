@@ -48,8 +48,12 @@ NSString * const WAAccountStoreAccountsKey = @"WAAccountStoreAccounts";
     return self;
 }
 
-- (NSArray *)accounts {
-    return self.cachedAccounts;
+- (NSArray<WAAccount *> *)accounts {
+    if (self.cachedAccounts) {
+        return self.cachedAccounts;
+    } else {
+        return @[];
+    }
 }
 
 - (NSArray *)storedAccounts {
@@ -82,12 +86,12 @@ NSString * const WAAccountStoreAccountsKey = @"WAAccountStoreAccounts";
 }
 
 - (WAAccount *)currentAccount {
-    return [self.cachedAccounts.firstObject copy];
+    return self.cachedAccounts.firstObject;
 }
 
 - (void)setCurrentAccount:(WAAccount *)currentAccount {
     NSParameterAssert(currentAccount);
-    [self addAccount:currentAccount.copy];
+    [self addAccount:currentAccount];
 }
 
 - (void)addAccount:(WAAccount *)account {
