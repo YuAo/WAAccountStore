@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <WAAccountStore/WAAccount.h>
-#import <WAAccountStore/WAAccountCredential.h>
+#import "WAAccount.h"
+#import "WAAccountCredential.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
