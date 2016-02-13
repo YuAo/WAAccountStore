@@ -75,7 +75,7 @@ There's a simple demo project in WAAccountStoreDemo folder. A `pod install` is r
 
 Either clone the repo and manually add the files in `WAAccountStore` directory
 
-or if you use Cocoapods, add the following to your Podfile
+or if you use CocoaPods, add the following to your Podfile
 
 	pod 'WAAccountStore'
 
