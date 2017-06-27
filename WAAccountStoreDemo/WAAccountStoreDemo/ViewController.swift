@@ -11,8 +11,8 @@ import WAAccountStore
 import Mantle
 
 class User: MTLModel {
-    private(set) var name: String?
-    private(set) var email: String?
+    fileprivate(set) var name: String?
+    fileprivate(set) var email: String?
     
     override init() {
         super.init()
@@ -24,7 +24,7 @@ class User: MTLModel {
         self.email = email
     }
 
-    required init(dictionary dictionaryValue: [NSObject : AnyObject]!) throws {
+    required init(dictionary dictionaryValue: [AnyHashable: Any]!) throws {
         try super.init(dictionary: dictionaryValue)
     }
 
@@ -63,40 +63,40 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.reloadCurrentAccountInfo()
     }
     
     func reloadCurrentAccountInfo() {
-        if let currentAccount = WAAccountStore.defaultStore().currentAccount {
+        if let currentAccount = WAAccountStore.default().currentAccount {
             self.textView.text = "ID:\(currentAccount.identifier)\nName:\(currentAccount.user.name!)\nEmail:\(currentAccount.user.email!)\nAccessToken:\(currentAccount.credential.accessToken)"
         } else {
             self.textView.text = "No Accounts"
         }
     }
     
-    @IBAction func addAccountButtonTapped(sender: AnyObject) {
-        let alertController = UIAlertController(title: "Add Account", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addTextFieldWithConfigurationHandler { (textField) -> Void in
+    @IBAction func addAccountButtonTapped(_ sender: AnyObject) {
+        let alertController = UIAlertController(title: "Add Account", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addTextField { (textField) -> Void in
             //AccountID
-            textField.text = NSProcessInfo.processInfo().globallyUniqueString
-            textField.textColor = UIColor.lightGrayColor()
-            textField.enabled = false
+            textField.text = ProcessInfo.processInfo.globallyUniqueString
+            textField.textColor = UIColor.lightGray
+            textField.isEnabled = false
         }
-        alertController.addTextFieldWithConfigurationHandler { (textField) -> Void in
+        alertController.addTextField { (textField) -> Void in
             textField.placeholder = "Name"
         }
-        alertController.addTextFieldWithConfigurationHandler { (textField) -> Void in
+        alertController.addTextField { (textField) -> Void in
             textField.placeholder = "Email"
         }
-        alertController.addTextFieldWithConfigurationHandler { (textField) -> Void in
+        alertController.addTextField { (textField) -> Void in
             textField.placeholder = "AccessToken"
         }
-        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (action) -> Void in
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (action) -> Void in
             
         }))
-        alertController.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+        alertController.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             //AccountID
             let accountID = (alertController.textFields![0]).text
             
@@ -113,10 +113,10 @@ class ViewController: UIViewController {
                 identifier: accountID!,
                 credential: WAAccountCredential(identifier: accountID!, accessToken: token!),
                 user: User(name: name!, email: email!))
-            WAAccountStore.defaultStore().addAccount(account)
+            WAAccountStore.default().addAccount(account)
             self.reloadCurrentAccountInfo()
         }))
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
 
 }
