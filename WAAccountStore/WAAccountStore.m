@@ -9,6 +9,10 @@
 #import "WAAccountStore.h"
 #import <WAKeyValuePersistenceStore/WAKeyValuePersistenceStore.h>
 
+NSString * const WALogoutAccount = @"WALogoutAccount";
+
+NSString * const WALoginAccount = @"WALoginAccount";
+
 NSString * const WAAccountStoreCurrentAccountDidChangeNotification = @"WAAccountStoreCurrentAccountDidChangeNotification";
 
 NSString * const WAAccountStoreCurrentAccountUpdatedNotification = @"WAAccountStoreCurrentAccountUpdatedNotification";
@@ -22,6 +26,10 @@ NSString * const WAAccountStoreAccountsKey = @"WAAccountStoreAccounts";
 @property (nonatomic,strong) WAKeyValuePersistenceStore *internalStorage;
 
 @property (nonatomic,copy) NSArray *cachedAccounts;
+
+@property (nonatomic, copy) WAAccount *loginAccount;
+
+@property (nonatomic, copy) WAAccount *logoutAccount;
 
 @end
 
@@ -73,16 +81,27 @@ NSString * const WAAccountStoreAccountsKey = @"WAAccountStoreAccounts";
 }
 
 - (void)synchronize {
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    if (self.loginAccount) [userInfo setObject:self.loginAccount forKey:WALoginAccount];
+    if (self.logoutAccount) [userInfo setObject:self.logoutAccount forKey:WALogoutAccount];
+    
     NSArray *oldAccounts = self.storedAccounts;
     WAAccount *oldCurrentAccount = oldAccounts.firstObject;
     self.internalStorage[WAAccountStoreAccountsKey] = self.cachedAccounts;
     if (oldCurrentAccount) {
         if (![oldCurrentAccount.identifier isEqualToString:self.currentAccount.identifier]) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:WAAccountStoreCurrentAccountDidChangeNotification object:self];
+            [[NSNotificationCenter defaultCenter] postNotificationName:WAAccountStoreCurrentAccountDidChangeNotification object:self userInfo:userInfo];
         }
     } else if (self.currentAccount) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:WAAccountStoreCurrentAccountDidChangeNotification object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:WAAccountStoreCurrentAccountDidChangeNotification object:self userInfo:userInfo];
     }
+    
+    [self cleanTempAccount];
+}
+
+- (void)cleanTempAccount {
+    self.loginAccount = nil;
+    self.logoutAccount = nil;
 }
 
 - (WAAccount *)currentAccount {
@@ -96,8 +115,11 @@ NSString * const WAAccountStoreAccountsKey = @"WAAccountStoreAccounts";
 
 - (void)addAccount:(WAAccount *)account {
     NSParameterAssert(account);
-    [self removeAccountWithIdentifier:account.identifier];
-    NSMutableArray *accounts = [NSMutableArray arrayWithArray:self.cachedAccounts];
+    
+    self.loginAccount = account;
+    self.logoutAccount = [self.accounts filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@",account.identifier]].firstObject;
+    
+    NSMutableArray *accounts = [NSMutableArray arrayWithArray:[self.accounts filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier != %@",account.identifier]]];
     [accounts insertObject:account atIndex:0];
     self.cachedAccounts = accounts;
 }
@@ -109,12 +131,21 @@ NSString * const WAAccountStoreAccountsKey = @"WAAccountStoreAccounts";
 
 - (void)removeAccountWithIdentifier:(NSString *)identifier {
     NSParameterAssert(identifier);
+
     NSArray *accounts = [self.accounts filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier != %@",identifier]];
+    
+    self.loginAccount = accounts.firstObject;
+    self.logoutAccount = [self.accounts filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", identifier]].firstObject;
+    
     self.cachedAccounts = accounts;
 }
 
 - (void)updateAccount:(WAAccount *)newAccount {
     NSParameterAssert(newAccount);
+    
+    self.loginAccount = newAccount;
+    self.logoutAccount = nil;
+    
     NSMutableArray *accounts = [NSMutableArray arrayWithArray:self.cachedAccounts];
     NSUInteger index = [accounts indexOfObjectPassingTest:^BOOL(WAAccount *obj, NSUInteger idx, BOOL *stop) {
         if ([obj.identifier isEqualToString:newAccount.identifier]) {

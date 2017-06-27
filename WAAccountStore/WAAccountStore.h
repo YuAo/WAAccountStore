@@ -12,6 +12,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern NSString * const WALogoutAccount;
+
+extern NSString * const WALoginAccount;
+
 extern NSString * const WAAccountStoreCurrentAccountDidChangeNotification;
 
 extern NSString * const WAAccountStoreCurrentAccountUpdatedNotification;
